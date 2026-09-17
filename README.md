@@ -4,13 +4,11 @@ Request anything in Seerr. If Real-Debrid already has it, it downloads at full l
 
 No client setup. No trackers. Open Seerr, hit Request, it shows up in Jellyfin.
 
-Most requests finish in minutes or less because RD serves a cached copy over HTTPS instead of waiting on torrent seeders. Uncached / rare items fall through to torrents and take longer. You don't need to know which path yours took.
-
 ## Why this exists
 
 Torrents are seeder-dependent: slow, inconsistent, and hard on HDDs.
 
-Real-Debrid is a cheap download cache. If someone has already uploaded what you requested, RD hands it to you directly at full line speed instead of trickling in from seeders. One RD subscription replaces private trackers and seedboxes for the common case.
+Real-Debrid is a cheap download cache and the download speed differencess against torrents most of the time is ginormous. One RD subscription replaces private trackers and seedboxes for the common case.
 
 The *arr torrent pipeline stays as backup, so a cache miss still completes — just slower.
 
@@ -29,7 +27,7 @@ The SSD is a loading dock, not a warehouse. It only ever holds downloads still i
 RD downloads arrive at full line speed for a few minutes, get imported to the HDD library, and the space is reused. The collection itself lives on cheap HDDs behind a single library path.
 Torrent fallback writes straight to HDD and skips the SSD entirely, so the slow path never fights fast ingest for SSD room.
 
-A couple hundred GB of staging comfortably handles several simultaneous RD downloads (the RD client runs max 4 at a time). Bulk HDDs do what they're good at: holding the library cheaply.
+A couple hundred GB of staging comfortably handles several simultaneous RD downloads (the RD client runs max 4 at a time).
 
 ## Install
 
