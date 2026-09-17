@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+*.tmp
+*.log
+/var/lib/rd-arr-gateway/
+pending/
+cleanup/
+metrics.json

@@ -1,0 +1,31 @@
+[Unit]
+Description=RD-first Arr gateway with qBittorrent fallback
+After=docker.service network-online.target
+Wants=docker.service network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/lib/rd-arr-gateway.py
+Restart=always
+RestartSec=2s
+User=root
+Group=root
+UMask=0077
+StateDirectory=rd-arr-gateway
+StateDirectoryMode=0700
+Environment=RD_ARR_GATEWAY_POLL_SECONDS=5
+Environment=RD_ARR_GATEWAY_NEVER_SEEN_SECONDS=60
+Environment=RD_ARR_GATEWAY_MISSING_SECONDS=30
+Environment=RD_ARR_GATEWAY_STALL_SECONDS=120
+Environment=RD_ARR_GATEWAY_MAX_PENDING_SECONDS=21600
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
